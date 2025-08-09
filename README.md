@@ -25,10 +25,11 @@ This repository includes a benchmarking program and JUnit tests to analyze corre
 
 ### Quick start (benchmark)
 
-1) Open a terminal and go to the project folder:
+1) Clone and enter the project directory (or use your existing checkout):
 
 ```bash
-cd "/Users/briankim/Documents/Main/Freshman Year/CS201/Projects/P3-DNA/p3-dna"
+git clone <this-repo-url>
+cd <repo-folder>/p3-dna
 ```
 
 2) Compile only the runtime sources (exclude tests so you don’t need the JUnit classpath):
@@ -60,7 +61,7 @@ To benchmark the full E. coli dataset, change the `fileName` in `DNABenchmark.ma
 1) Compile production classes (if not already):
 
 ```bash
-cd "/Users/briankim/Documents/Main/Freshman Year/CS201/Projects/P3-DNA/p3-dna"
+cd p3-dna  # if not already in this directory
 mkdir -p out
 javac -d out src/IDnaStrand.java src/StringStrand.java src/StringBuilderStrand.java \
   src/LinkStrand.java src/CharDnaIterator.java
@@ -68,9 +69,16 @@ javac -d out src/IDnaStrand.java src/StringStrand.java src/StringBuilderStrand.j
 
 2) Compile tests with the JUnit classpath:
 
+macOS/Linux:
 ```bash
-javac -cp "lib/junit-jupiter-api-5.8.2.jar:lib/opentest4j-1.2.0.jar:out" \
-  -d out src/TestStrand.java src/TestIterator.java
+javac -cp "lib/junit-jupiter-api-5.8.2.jar:lib/opentest4j-1.2.0.jar:out" -d out \
+  src/TestStrand.java src/TestIterator.java
+```
+
+Windows (CMD):
+```bat
+javac -cp "lib\junit-jupiter-api-5.8.2.jar;lib\opentest4j-1.2.0.jar;out" -d out ^
+  src\TestStrand.java src\TestIterator.java
 ```
 
 3) Run tests using the JUnit Console Launcher:
